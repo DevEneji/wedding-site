@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background: #00313A;
+  }
+
+  body {
+    background-color: #00313A;
+    color: #F5F0E8;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  ::selection {
+    background: rgba(201, 169, 110, 0.3);
+    color: #F5F0E8;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  .bg-scene {
+    background-image:
+      radial-gradient(ellipse at 15% 10%, rgba(20, 145, 155, 0.18) 0%, transparent 50%),
+      radial-gradient(ellipse at 85% 5%, rgba(201, 169, 110, 0.10) 0%, transparent 40%),
+      radial-gradient(ellipse at 50% 90%, rgba(0, 109, 119, 0.25) 0%, transparent 55%);
+  }
+
+  .text-sand   { color: #C9A96E; }
+  .text-sand-light { color: #E8D5B0; }
+  .border-sand { border-color: rgba(201, 169, 110, 0.3); }
+  .bg-sand     { background-color: #C9A96E; }
+
+  .divider-line {
+    width: 48px;
+    height: 1px;
+    background-color: rgba(201, 169, 110, 0.5);
+    display: inline-block;
+  }
+}
+
+/* ─── Modal backdrop ──────────────────────────────────── */
+.modal-backdrop {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* ─── Scrollbar hide ──────────────────────────────────── */
+.scrollbar-hide { scrollbar-width: none; }
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+
+/* ─── Hero background Ken Burns ──────────────────────── */
+@keyframes ken-burns {
+  from { transform: scale(1.0); }
+  to   { transform: scale(1.08); }
+}
+.animate-ken-burns {
+  animation: ken-burns 22s ease-in-out both alternate infinite;
+}
+
+/* ─── Hero scroll nudge bounce ───────────────────────── */
+@keyframes nudge-down {
+  0%, 100% { transform: translateY(0); opacity: 0.45; }
+  50%       { transform: translateY(6px); opacity: 0.9; }
+}
+.animate-nudge { animation: nudge-down 2s ease-in-out infinite; }
+
+/* ─── Staggered fade-up delays ───────────────────────── */
+.delay-0   { animation-delay:   0ms; }
+.delay-75  { animation-delay:  75ms; }
+.delay-150 { animation-delay: 150ms; }
+.delay-225 { animation-delay: 225ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-375 { animation-delay: 375ms; }
+.delay-450 { animation-delay: 450ms; }
+.delay-525 { animation-delay: 525ms; }
+.delay-600 { animation-delay: 600ms; }
+
+/* ─── Gallery card entrance stagger ──────────────────── */
+@keyframes card-reveal {
+  from { opacity: 0; transform: translateY(18px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0)   scale(1); }
+}
+.animate-card-reveal {
+  animation: card-reveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ─── Chapter content fade (WrappedSection) ──────────── */
+@keyframes chapter-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-chapter-in {
+  animation: chapter-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ─── Registry item entrance on filter ───────────────── */
+@keyframes item-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.animate-item-in {
+  animation: item-in 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ─── Hero image in (WrappedSection left panel) ──────── */
+@keyframes image-in {
+  from { opacity: 0.6; transform: scale(1.04); }
+  to   { opacity: 1;   transform: scale(1); }
+}
+.animate-image-in {
+  animation: image-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ─── Modal scale-in ─────────────────────────────────── */
+/* (kept in tailwind config keyframes too; CSS here as fallback) */
+
+/* ─── Mobile nav slide ───────────────────────────────── */
+@keyframes nav-slide-down {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-nav-slide {
+  animation: nav-slide-down 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ─── Copy toast ─────────────────────────────────────── */
+@keyframes toast-pop {
+  0%   { opacity: 0; transform: translateY(4px) scale(0.95); }
+  15%  { opacity: 1; transform: translateY(0)   scale(1); }
+  80%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+.animate-toast {
+  animation: toast-pop 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ─── RSVP success ───────────────────────────────────── */
+@keyframes success-in {
+  from { opacity: 0; transform: scale(0.94) translateY(12px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+.animate-success-in {
+  animation: success-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ─── Reduced-motion overrides ───────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Custom scrollbar ───────────────────────────────── */
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: #004D5A; }
+::-webkit-scrollbar-thumb { background: rgba(201,169,110,0.4); border-radius: 3px; }
