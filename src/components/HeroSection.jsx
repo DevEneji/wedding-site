@@ -171,7 +171,7 @@ export default function HeroSection() {
           className="absolute bottom-7 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-[9px] uppercase tracking-[0.3em] text-sand-100/40 transition-colors hover:text-sand-100/75"
           aria-label="Scroll to gallery"
         >
-          <span className="animate-fade-up delay-600">Explore</span>
+          {/*<span className="animate-fade-up delay-600">Explore</span>*/}
           <span className="animate-nudge h-9 w-px bg-gradient-to-b from-sand-300/65 to-transparent" />
         </a>
       </div>
