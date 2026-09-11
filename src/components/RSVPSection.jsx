@@ -25,7 +25,7 @@ export default function RSVPSection() {
     setStatus('submitting')
     setName(form.name.trim().split(' ')[0] || 'friend')
     try {
-      const res = await fetch('/__forms.html', {
+      const res = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({ 'form-name': 'rsvp', ...form }),
