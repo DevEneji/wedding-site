@@ -13,6 +13,15 @@
     />
   </head>
   <body>
+    
+    <!-- Hidden form for Netlify detection -->
+    <form name="rsvp" data-netlify="true" hidden>
+      <input type="text" name="name" />
+      <input type="text" name="attending" />
+      <input type="text" name="guests" />
+      <textarea name="message"></textarea>
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
